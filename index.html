@@ -15,13 +15,37 @@
 </head>
 <body>
     <div class="container">
-        <h1>GifTastic</h1>
-        <button type="button" class="btn btn-secondary btn-lg">Large button</button>
-        <button type="button" class="btn btn-secondary btn-lg">Large button</button>
+        <!-- Row 1 - Header -->
+        <div class="row">
+            <h1>GifTastic</h1>
+        </div>
         
-        <div id="gif-button"></div>
-        <div id="gif-search"></div>
-        <div id="gif-result"></div>
+        <!-- Row 2 - Buttons -->
+        <div class="row">
+            <div id="gif-button"></div>
+        </div>
+
+        <!-- Row 3 - Main App Section -->
+        <div class="row">
+            <!-- Row 3 Col 1 - Gif Output -->
+            <div class="col">
+                <div id="gif-result"></div>
+            </div>
+
+            <!-- Row 3 Col 2 - Options  -->
+            <div class="col">
+                <div id="gif-search" class="form-group">
+                    <label for="gif-input">Add Sport</label>
+                    <input id="gif-input" class="form-control" type="text" placeholder="">
+                </div>
+                <button type="submit" class="btn btn-primary" id="add-giff-btn">Submit</button>
+                <div id="form-group">
+                    <label for="query-limit-form">GIF Max</label>
+                    <select class="form-control" id="query-limit-form"></select>
+                </div>
+            </div>
+        </div>
+        
     </div>
 
 

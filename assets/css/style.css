@@ -1,0 +1,76 @@
+body {
+    /* background-image: url("../images/1230825-bigthumbnail.jpg"); */
+    /* background-image: url("../images/71Xj4vgtmqL._SX425_.jpg"); */
+    /* background-image: url("../images/depositphotos_12822682-stock-illustration-balls-seamless-pattern-10eps.jpg"); */
+    /* Full height */
+    /* height: 100%;  */
+  
+    /* Center and scale the image nicely */
+    /* background-position: center; */
+    /* background-repeat: no-repeat; */
+    /* background-size: cover; */
+    /* background-size: 300px 100px; */
+    /* opacity: 0.5;
+    filter: alpha(opacity=50); For IE8 and earlier */
+}
+
+h1 {
+    font-size: 75px;
+    color:blueviolet;
+    /* font-family: 'Luckiest Guy', cursive; */
+    font-family: 'Bangers', cursive;
+    /* font-family: 'Monoton', cursive; */
+    /* font-family: 'Rock Salt', cursive; */
+}
+
+/* grabbed from web... */
+.rainbow {
+    background-image: -webkit-gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
+    background-image: gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
+    color:transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+
+#header-div{
+    padding: 20px;
+    /* margin: 10px; */
+}
+
+#button-div {
+    /* margin: 10px; */
+    padding: 20px;
+}
+
+#search-div {
+    margin: 20px;
+    padding: 20px;
+    background-color: burlywood;
+    /* background: rgba(76, 175, 80, 0.3) */
+    /* opacity: 0.5;
+    filter: alpha(opacity=50); For IE8 and earlier */
+}
+
+
+#display-div {
+    /* background-color: grey; */
+    padding: 20px;
+    margin: 20px;
+}
+
+#add-giff-btn {
+    padding: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#gif-btn {
+    /* padding: 10px; */
+    margin-right: 10px;
+
+}
+
+.form-group {
+    padding: 5px;
+    /* margin: 5px; */
+}

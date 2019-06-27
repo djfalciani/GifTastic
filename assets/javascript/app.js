@@ -1,22 +1,13 @@
 // Global Variables
 var queryLimit = 10;
-var topics = ["baseball", "soccer", "football", "hockey", "basketball"];
+var topics = ["baseball", "soccer", "football", "hockey", "basketball", "lacrosse", "field hockey", "volleyball"];
 
-// Movie & Activity 15 - Pausing GIFF
-
-// displayMovieInfo function re-renders the HTML to display the appropriate content
+// displayGifResult - makes the API call and creates the bootstrap cards using response data...
 function displayGIFResult() {
-  // var apiRetLimit = queryLimit;
   var apiRetLimit = $("#query-limit-form").val().trim();
-  console.log(apiRetLimit);
   var apiKey = "1SgTFjjC7T6J2YvQUa8ki0KERWwUtOpP";
   var xTopic = $(this).attr("data-name");
-  // console.log(xTopic);
-  
-  //var queryURL = "https://www.omdbapi.com/?t=" + movie + "&apikey=trilogy";
   var queryURL = ("https://api.giphy.com/v1/gifs/search?q=" + xTopic + "&api_key=" + apiKey + "&limit=" + apiRetLimit);
-  
-  // console.log(queryURL);
   
   //javascript, jQuery
   // var xhr = $.get("http://api.giphy.com/v1/gifs/search?q=" + xTopic + "&api_key=" + apiKey + "&limit=" + apiRetLimit);
@@ -25,7 +16,6 @@ function displayGIFResult() {
 
   clearGiffDiv();
 
-  // Creating an AJAX call for the specific movie button being clicked
   $.ajax({
     url: queryURL,
     method: "GET"
@@ -33,46 +23,36 @@ function displayGIFResult() {
     // Storing an array of results in the results variable
     var results = response.data;
 
-    // console.log(results);
-
     // Looping over every result item
     for (var i = 0; i < results.length; i++) {
-      // var rating = results[i].rating;
-      
-      // Creating a div for the gif
-      var gifDiv = $("<div>");
-      
-      // Storing the result item's rating
       var rating = results[i].rating;
-      
-      // Creating a paragraph tag with the result item's rating
-      var p = $("<p>").text("Rating: " + rating);
-      
-      // Store results Title and create header tag for it...
       var title = results[i].title;
-      // var h = $("<h3>").text("Title: " + title);
-      var h = $("<h3>").text(title);
-
-      // Creating an image tag
-      var giffImage = $("<img>");
-
-      // Add Class
-      giffImage.addClass("giff-image");
-
-      // Giving the image tag an src attribute of a proprty pulled off the
-      // result item
       var stillImg = results[i].images.fixed_height_still.url;
       var animatedImg = results[i].images.fixed_height.url;
+      var gifDiv = $("<div>");
+      var cardDiv = $("<div>");
+      var giffImage = $("<img>");
 
-      giffImage.attr("src", stillImg);
-      giffImage.attr("data-state","still");
-      giffImage.attr("data-still", stillImg);
-      giffImage.attr("data-animate", animatedImg);
+      gifDiv.addClass("card");
+      cardDiv.addClass("card-body");
+      giffImage.addClass("giff-image card-img-top");
+      
+      giffImage.attr({
+        src: stillImg,
+        "data-state": "still",
+        "data-still": stillImg,
+        "data-animate": animatedImg
+      });
+
+      // Construct Card-Body...
+      var p = $("<p class= 'card-text'>").text("Rating: " + rating);
+      var h = $("<h5 class='card-title'>").text(title);
 
       // Appending the paragraph and giffImage we created to the "gifDiv" div we created
-      gifDiv.append(h);
-      gifDiv.append(p);
+      cardDiv.append(h);
+      cardDiv.append(p);
       gifDiv.append(giffImage);
+      gifDiv.append(cardDiv);
 
       // Prepending the gifDiv to the "#gif-result" div in the HTML
       $("#gif-result").append(gifDiv);
@@ -93,7 +73,8 @@ function renderButtons() {
     for (var i = 0; i < topics.length; i++) {
       var a = $("<button>");
       // a.addClass("gif-btn btn btn-secondary btn-lg");
-      a.addClass("gif-btn btn btn-secondary");
+      a.attr("id","gif-btn");
+      a.addClass("btn btn-secondary");
       a.attr("data-name", topics[i]);
       a.text(topics[i]);
       $("#gif-button").append(a);
@@ -124,7 +105,7 @@ function renderButtons() {
     }
   }
 
-  $(document).on("click", ".gif-btn", displayGIFResult);
+  $(document).on("click", "#gif-btn", displayGIFResult);
 
   $(document).on("click", ".giff-image", updateGiffState);
 
@@ -132,12 +113,8 @@ function renderButtons() {
     event.preventDefault();
     // This line grabs the input from the textbox
     var newTopic = $("#gif-input").val().trim();
-    
-    // console.log(newTopic);
 
     topics.push(newTopic);
-
-    // Calling renderButtons which handles the processing of our movie array
     renderButtons();
   });
   

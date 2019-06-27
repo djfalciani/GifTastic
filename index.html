@@ -9,41 +9,49 @@
     <!-- CSS Style Sheet Links -->
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Google Fonts -->
+    <!-- <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy&display=swap" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css?family=Bangers|Luckiest+Guy|Monoton|Rock+Salt&display=swap" rel="stylesheet">
     <!-- Custom Style Sheet -->
     <link rel="stylesheet" href="assets/css/Style.css">
 
 </head>
 <body>
-    <div class="container">
+    <div class="container-fluid" id="app-div">
         <!-- Row 1 - Header -->
-        <div class="row">
-            <h1>GifTastic</h1>
+        <div class="row" id="header-div">
+            <h1 class="rainbow">GifTastic</h1>
         </div>
         
         <!-- Row 2 - Buttons -->
-        <div class="row">
+        <div class="row" id="button-div">
             <div id="gif-button"></div>
         </div>
 
         <!-- Row 3 - Main App Section -->
-        <div class="row">
-            <!-- Row 3 Col 1 - Gif Output -->
-            <div class="col">
-                <div id="gif-result"></div>
+        <div class="row" >
+            <!-- Row 3 Col 1 - Options  -->
+            <div class="col-lg-4 col-sm-3" id="search-div">
+                <form>
+                    <div class="form-row">
+                        <div class="col">
+                            <label for="gif-input">Add Topic</label>
+                            <input id="gif-input" class="form-control" type="text" placeholder="">
+                        </div>
+                        <div class="col-lg-3">
+                            <label for="query-limit-form">GIF Max</label>
+                            <select class="form-control" id="query-limit-form"></select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="add-giff-btn">Submit</button>
+                </form>
             </div>
 
-            <!-- Row 3 Col 2 - Options  -->
-            <div class="col">
-                <div id="gif-search" class="form-group">
-                    <label for="gif-input">Add Sport</label>
-                    <input id="gif-input" class="form-control" type="text" placeholder="">
-                </div>
-                <button type="submit" class="btn btn-primary" id="add-giff-btn">Submit</button>
-                <div id="form-group">
-                    <label for="query-limit-form">GIF Max</label>
-                    <select class="form-control" id="query-limit-form"></select>
-                </div>
+            <!-- Row 3 Col 2 - Gif Output -->
+            <div class="col" id="display-div">
+                <div id="gif-result" class="card-columns"></div>
             </div>
+
         </div>
         
     </div>
